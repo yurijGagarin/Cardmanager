@@ -1,0 +1,5 @@
+asgiref==3.5.2
+ccard==0.1.9
+Django==4.0.6
+sqlparse==0.4.2
+django-filter==22.1
