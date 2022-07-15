@@ -15,6 +15,10 @@
 
 ## Installation
 ```bash
+git clone https://github.com/yurijGagarin/Cardmanager.git
+cd Cardmanager
+python -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
 cp cardmanager/local_settings.py.example  cardmanager/local_settings.py
 # edit local_settings.py
