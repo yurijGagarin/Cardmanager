@@ -1,0 +1,33 @@
+[
+  {
+    "model": "card.card",
+    "pk": 1,
+    "fields": {
+      "serial_number": 100,
+      "card_number": 4716160391268272,
+      "release_date": "2022-06-07T18:11:58Z",
+      "exp_date": "2022-07-05T18:11:58Z",
+      "cvv": 574,
+      "balance": 0.0,
+      "card_status": "activated"
+    }
+  },
+  {
+    "model": "card.cardtransaction",
+    "pk": 1,
+    "fields": {
+      "card": 1,
+      "date": "2022-07-15T11:59:08.456Z",
+      "amount": 5.0
+    }
+  },
+  {
+    "model": "card.cardtransaction",
+    "pk": 2,
+    "fields": {
+      "card": 1,
+      "date": "2022-07-15T11:59:08.456Z",
+      "amount": 15.0
+    }
+  }
+]

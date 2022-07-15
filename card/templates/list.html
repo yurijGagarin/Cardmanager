@@ -3,58 +3,116 @@
 Card List
 {% endblock %}
 {% block content %}
-<br>
-<div class="row">
-	<div class="col">
-		<div class="card card-body">
+{% load addcss %}
 
-			<form method="get">
-				{{myFilter.form}}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card card-body">
+                <form method="get" class="form-filter">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="{{ filter.form.serial_number.id_for_label }}">Serial Num:</label>
 
-		    <button class="btn btn-primary" type="submit">Search</button>
-		  </form>
+                                {{ filter.form.serial_number | addcss:'form-control' }}
 
-		</div>
-	</div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="{{ filter.form.card_number.id_for_label }}">Card Num:</label>
+                                {{ filter.form.card_number | addcss:'form-control' }}
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
 
-</div>
-<br>
+                                <label for="{{ filter.form.card_status.id_for_label }}">Status:</label>
+                                {{ filter.form.card_status | addcss:'form-control'}}
+                            </div>
 
-<br>
+                        </div>
 
-<div class="row">
-    <div class="col-md">
-        <div class="card card-body">
-            <h5>Cards</h5>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="{{ filter.form.release_date_from.id_for_label }}">Released date from:</label>
+                                {{ filter.form.release_date_from }}
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="{{ filter.form.end_date_from.id_for_label }}">Expire date from:</label>
+                                {{ filter.form.end_date_from }}
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="{{ filter.form.release_date_to.id_for_label }}">Released date to:</label>
+                                {{ filter.form.release_date_to }}
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="{{ filter.form.end_date_to.id_for_label }}">Expire date to:</label>
+                                {{ filter.form.end_date_to }}
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+
+                            <div class="form-group">
+                                <button class="btn btn-primary" type="submit">Search</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
         </div>
-        <div class="card card-body">
-            <table class="table">
-                <tr>
-                    <th>Serial Number</th>
-                    <th>Card Number</th>
-                    <th>Rel Date</th>
-                    <th>Exp Date</th>
-                    <th>CVV</th>
-                    <th>Balance</th>
-                    <th>Status</th>
-                </tr>
-                {% for card in page_obj %}
-                <tr>
-                    <td>{{ card.serial_number }}</td>
-                    <td>{{ card.card_number }}</td>
-                    <td>{{ card.release_date }}</td>
-                    <td>{{ card.end_date }}</td>
-                    <td>{{ card.cvv }}</td>
-                    <td>{{ card.money_on_card }}</td>
-                    <td>{{ card.card_status }}</td>
-                </tr>
-                {% endfor %}
-            </table>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Cards</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <tr>
+                            <th>Serial №</th>
+                            <th>Card Number</th>
+                            <th>Rel Date</th>
+                            <th>Exp Date</th>
+                            <th>Status</th>
+                            <th><center><em class="fa fa-cog" ></em></center></th>
+                        </tr>
+                        {% for card in page_obj %}
+                        <tr>
+                            <td>{{ card.serial_number }}</td>
+                            <td>{{ card.card_number }}</td>
+                            <td>{{ card.release_date }}</td>
+                            <td>{{ card.exp_date }}</td>
+                            <td>{{ card.status }}</td>
+                            <td>
+                                <a href="{% url 'info' card.id %}" class="btn btn-default"><em
+                                        class="fa fa-pencil"></em></a>
+                                <a href="{% url 'delete' card.id %}" class="btn btn-danger"><em class="fa fa-trash"></em></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+
+            </div>
         </div>
     </div>
-</div>
 
-<div class="pagination">
+    <div class="pagination p-3">
     <span class="step-links">
         {% if page_obj.has_previous %}
             <a href="?page=1">&laquo; first</a>
@@ -70,5 +128,6 @@ Card List
             <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
         {% endif %}
     </span>
+    </div>
 </div>
 {% endblock %}
