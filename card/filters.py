@@ -44,15 +44,14 @@ class CardFilter(django_filters.FilterSet):
             }
         ),
     )
-    end_date_from = django_filters.DateTimeFilter(
-        field_name='end_date',
+    exp_date_from = django_filters.DateTimeFilter(
+        field_name='exp_date',
         label='End date From',
         lookup_expr='gte',
         widget=forms.DateTimePicker(
             options={
                 'useCurrent': False,
                 'collapse': False,
-                'maxDate': str(datetime.now()),
 
             },
             attrs={
@@ -62,15 +61,14 @@ class CardFilter(django_filters.FilterSet):
             }
         ),
     )
-    end_date_to = django_filters.DateTimeFilter(
-        field_name='end_date',
+    exp_date_to = django_filters.DateTimeFilter(
+        field_name='exp_date',
         label='End date To',
         lookup_expr='lte',
         widget=forms.DateTimePicker(
             options={
                 'useCurrent': False,
                 'collapse': False,
-                'maxDate': str(datetime.now()),
 
             },
             attrs={
@@ -84,4 +82,4 @@ class CardFilter(django_filters.FilterSet):
     class Meta:
         model = Card
         fields = '__all__'
-        exclude = ['release_date', 'end_date', 'cvv', 'money_on_card']
+        exclude = ['release_date', 'exp_date', 'cvv', 'balance']

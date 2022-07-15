@@ -8,7 +8,7 @@
       "release_date": "2022-06-07T18:11:58Z",
       "exp_date": "2022-07-05T18:11:58Z",
       "cvv": 574,
-      "balance": 0.0,
+      "balance": 13.0,
       "card_status": "activated"
     }
   },
@@ -29,5 +29,86 @@
       "date": "2022-07-15T11:59:08.456Z",
       "amount": 15.0
     }
+  },
+  {
+    "model": "card.card",
+    "pk": 2,
+    "fields": {
+      "serial_number": 22,
+      "card_number": 5452477263709141,
+      "release_date": "2022-06-07T18:11:58Z",
+      "exp_date": "2022-10-05T18:11:58Z",
+      "cvv": 534,
+      "balance": 200.0,
+      "card_status": "activated"
+    }
+  },
+  {
+    "model": "card.cardtransaction",
+    "pk": 3,
+    "fields": {
+      "card": 2,
+      "date": "2022-07-18T11:30:08.456Z",
+      "amount": 5.0
+    }
+  },
+  {
+    "model": "card.cardtransaction",
+    "pk": 4,
+    "fields": {
+      "card": 2,
+      "date": "2022-07-16T19:59:08.456Z",
+      "amount": 15.0
+    }
+  },
+  {
+    "model": "card.card",
+    "pk": 3,
+    "fields": {
+      "serial_number": 223,
+      "card_number": 5452477263709141,
+      "release_date": "2022-03-07T18:11:58Z",
+      "exp_date": "2022-10-05T18:11:58Z",
+      "cvv": 544,
+      "balance": 340.0,
+      "card_status": "activated"
+    }
+  },
+  {
+    "model": "card.cardtransaction",
+    "pk": 5,
+    "fields": {
+      "card": 3,
+      "date": "2022-07-11T11:30:08.456Z",
+      "amount": 25.0
+    }
+  },
+  {
+    "model": "card.cardtransaction",
+    "pk":6,
+    "fields": {
+      "card": 3,
+      "date": "2022-07-13T19:59:08.456Z",
+      "amount": 15.0
+    }
+  },
+  {
+    "model": "card.cardtransaction",
+    "pk": 7,
+    "fields": {
+      "card": 3,
+      "date": "2022-07-15T11:30:08.456Z",
+      "amount": 5.0
+    }
+  },
+  {
+    "model": "card.cardtransaction",
+    "pk": 8,
+    "fields": {
+      "card": 3,
+      "date": "2022-07-16T19:59:08.456Z",
+      "amount": 115.0
+    }
   }
+
 ]
